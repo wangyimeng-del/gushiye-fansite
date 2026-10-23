@@ -7,6 +7,12 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230b0a1a'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23c9a961' font-family='serif'%3E%E9%A1%BE%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://miaoda.feishu.cn" crossorigin>
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&display=swap">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0b0a1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="顾时夜">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{
   --bg:#0b0a1a; --surface:#14122b; --surface2:#1a1733;
@@ -25,50 +31,31 @@ img{max-width:100%;display:block}
 a{color:var(--gold-bright);text-decoration:none}
 a:hover{color:var(--gold)}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-
-/* ---------- nav ---------- */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(11,10,26,0.92); backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-.nav-inner{max-width:1180px;margin:0 auto;padding:0 20px;height:60px;
-  display:flex;align-items:center;justify-content:space-between;gap:12px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,10,26,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{color:var(--gold-bright);font-weight:900;letter-spacing:2px;font-size:17px;white-space:nowrap}
 .brand small{color:var(--muted);font-weight:400;letter-spacing:1px;font-size:12px;margin-left:8px}
 .nav-links{display:flex;gap:4px;flex-wrap:wrap}
 .nav-links a{color:var(--muted);font-size:14px;padding:6px 10px;border-radius:2px;white-space:nowrap}
 .nav-links a:hover{color:var(--gold-bright);background:var(--line-soft)}
-
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;
-  padding:100px 0 60px;overflow:hidden}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:100px 0 60px;overflow:hidden}
 .hero-bg{position:absolute;inset:0;opacity:0.35}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
-.hero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(11,10,26,0.95) 30%,rgba(11,10,26,0.55) 70%,rgba(11,10,26,0.85)),
-             linear-gradient(0deg,var(--bg) 2%,transparent 30%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,10,26,0.95) 30%,rgba(11,10,26,0.55) 70%,rgba(11,10,26,0.85)),linear-gradient(0deg,var(--bg) 2%,transparent 30%)}
 .hero-content{position:relative;z-index:2;max-width:640px}
 .hero .kicker{color:var(--gold);letter-spacing:6px;font-size:14px;margin-bottom:18px}
-.hero h1{font-size:clamp(56px,12vw,110px);font-weight:900;color:var(--gold-bright);
-  line-height:1.1;letter-spacing:8px;text-shadow:0 2px 24px rgba(0,0,0,0.6)}
+.hero h1{font-size:clamp(56px,12vw,110px);font-weight:900;color:var(--gold-bright);line-height:1.1;letter-spacing:8px;text-shadow:0 2px 24px rgba(0,0,0,0.6)}
 .hero .sub{margin-top:16px;color:var(--text);font-size:18px;letter-spacing:2px}
 .hero .sub span{color:var(--muted)}
-.hero .quote{margin-top:34px;padding:18px 22px;border-left:2px solid var(--gold);
-  background:rgba(20,18,43,0.7);color:var(--text);font-size:17px;max-width:560px}
+.hero .quote{margin-top:34px;padding:18px 22px;border-left:2px solid var(--gold);background:rgba(20,18,43,0.7);color:var(--text);font-size:17px;max-width:560px}
 .corner{position:absolute;width:38px;height:38px;border-color:var(--gold);opacity:0.7}
 .corner.tl{top:24px;left:24px;border-top:1px solid;border-left:1px solid}
 .corner.br{bottom:24px;right:24px;border-bottom:1px solid;border-right:1px solid}
-
-/* ---------- section common ---------- */
 section{padding:80px 0 40px}
-.sec-head{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--line);
-  padding-bottom:18px;margin-bottom:36px}
+.sec-head{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:36px}
 .sec-num{font-size:44px;font-weight:900;color:var(--line);line-height:1}
 .sec-head h2{font-size:28px;color:var(--gold-bright);letter-spacing:4px;font-weight:700}
 .sec-head .en{color:var(--muted);font-size:13px;letter-spacing:2px;margin-left:auto}
-
-/* ---------- profile ---------- */
 .profile-grid{display:grid;grid-template-columns:320px 1fr;gap:36px;align-items:start}
 .portrait-stack{display:grid;gap:14px}
 .portrait-stack img{border:1px solid var(--line);width:100%;object-fit:cover}
@@ -81,62 +68,46 @@ section{padding:80px 0 40px}
 .trait{background:var(--surface);border:1px solid var(--line-soft);padding:16px 18px;margin-bottom:12px}
 .trait h4{color:var(--gold-bright);font-size:15px;letter-spacing:2px;margin-bottom:6px}
 .trait p{color:var(--text);font-size:15px}
-.parse{margin-top:22px;padding:18px 20px;border:1px solid var(--line);background:var(--surface);
-  color:var(--text);font-size:15px}
+.parse{margin-top:22px;padding:18px 20px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:15px}
 .parse strong{color:var(--gold-bright)}
 .quotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:26px}
 .qcard{border:1px solid var(--line-soft);background:var(--surface);padding:16px 18px;position:relative}
 .qcard::before{content:"\201C";color:var(--gold);font-size:34px;position:absolute;top:4px;left:10px;opacity:0.5}
 .qcard p{padding-left:20px;font-size:14.5px;color:var(--text)}
 .qcard .src{display:block;margin-top:8px;color:var(--muted);font-size:12.5px;padding-left:20px}
-
-/* ---------- story cards ---------- */
 .story-list{display:grid;gap:18px}
 .story-card{background:var(--surface);border:1px solid var(--line-soft);padding:22px 24px;transition:border-color .25s}
 .story-card:hover{border-color:var(--gold)}
 .story-card h3{color:var(--gold-bright);font-size:20px;letter-spacing:1px}
 .tags{margin:8px 0 10px}
-.tag{display:inline-block;font-size:12px;color:var(--gold);border:1px solid var(--line);
-  padding:2px 10px;margin-right:8px;border-radius:2px;letter-spacing:1px}
+.tag{display:inline-block;font-size:12px;color:var(--gold);border:1px solid var(--line);padding:2px 10px;margin-right:8px;border-radius:2px;letter-spacing:1px}
 .story-card .syn{color:var(--text);font-size:15px}
 .story-card ul{margin:12px 0 0 20px;color:var(--muted);font-size:14.5px}
 .story-card ul li{margin-bottom:4px}
-.story-line{margin-top:14px;padding:10px 16px;border-left:2px solid var(--gold);
-  background:var(--line-soft);color:var(--gold-bright);font-size:15px}
-.toggle{margin-top:14px;background:none;border:1px solid var(--gold);color:var(--gold);
-  padding:6px 18px;cursor:pointer;font-family:inherit;font-size:13px;letter-spacing:2px}
+.story-line{margin-top:14px;padding:10px 16px;border-left:2px solid var(--gold);background:var(--line-soft);color:var(--gold-bright);font-size:15px}
+.toggle{margin-top:14px;background:none;border:1px solid var(--gold);color:var(--gold);padding:6px 18px;cursor:pointer;font-family:inherit;font-size:13px;letter-spacing:2px}
 .toggle:hover{background:var(--gold);color:var(--bg)}
 .story-card.more .extra{display:none}
 .story-card.more.open .extra{display:block}
-
-/* ---------- timeline ---------- */
 .tl{display:grid;grid-template-columns:120px 30px 1fr;gap:0 10px;position:relative}
 .tl-item{display:contents}
-.tl-time{color:var(--gold-bright);font-size:14.5px;text-align:right;padding:14px 8px 14px 0;
-  border-bottom:1px solid var(--line-soft)}
+.tl-time{color:var(--gold-bright);font-size:14.5px;text-align:right;padding:14px 8px 14px 0;border-bottom:1px solid var(--line-soft)}
 .tl-dot{position:relative;height:100%;border-left:1px solid var(--line)}
-.tl-dot::after{content:"";position:absolute;left:-5px;top:20px;width:9px;height:9px;
-  background:var(--gold);border-radius:50%;box-shadow:0 0 0 3px var(--bg)}
+.tl-dot::after{content:"";position:absolute;left:-5px;top:20px;width:9px;height:9px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 3px var(--bg)}
 .tl-body{padding:12px 0 22px 14px;border-bottom:1px solid var(--line-soft)}
 .tl-body h4{color:var(--text);font-size:16px}
 .tl-body .sv{color:var(--gold);font-size:13.5px;margin:2px 0}
 .tl-body p{color:var(--muted);font-size:14px}
-
-/* ---------- cards ---------- */
 .filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
-.filter button{background:var(--surface);border:1px solid var(--line);color:var(--muted);
-  padding:6px 18px;cursor:pointer;font-family:inherit;font-size:14px;letter-spacing:1px}
+.filter button{background:var(--surface);border:1px solid var(--line);color:var(--muted);padding:6px 18px;cursor:pointer;font-family:inherit;font-size:14px;letter-spacing:1px}
 .filter button.active{color:var(--bg);background:var(--gold);border-color:var(--gold)}
 .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.ccard{background:var(--surface);border:1px solid var(--line-soft);overflow:hidden;cursor:pointer;
-  transition:transform .25s,border-color .25s}
+.ccard{background:var(--surface);border:1px solid var(--line-soft);overflow:hidden;cursor:pointer;transition:transform .25s,border-color .25s}
 .ccard:hover{border-color:var(--gold);transform:translateY(-3px)}
 .ccard .thumb{aspect-ratio:4/5;overflow:hidden;position:relative;background:var(--surface2)}
 .ccard .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .ccard:hover .thumb img{transform:scale(1.05)}
-.ccard .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(circle at 50% 30%,#2a2450,#12102a 70%);color:var(--gold);
-  font-size:26px;letter-spacing:4px;text-align:center;padding:10px}
+.ccard .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 30%,#2a2450,#12102a 70%);color:var(--gold);font-size:26px;letter-spacing:4px;text-align:center;padding:10px}
 .ccard .ph small{display:block;font-size:11px;color:var(--muted);letter-spacing:2px;margin-top:8px}
 .badge{position:absolute;top:8px;right:8px;font-size:11px;padding:2px 8px;letter-spacing:1px;z-index:2}
 .badge.ssr{background:var(--gold);color:#1a1408}
@@ -146,11 +117,8 @@ section{padding:80px 0 40px}
 .ccard .meta h4{font-size:15.5px;color:var(--gold-bright)}
 .ccard .meta .src{font-size:12px;color:var(--muted);margin:3px 0}
 .ccard .meta .line{font-size:12.5px;color:var(--text);opacity:.85}
-
-/* ---------- identity & relations ---------- */
 table.identity{width:100%;border-collapse:collapse;margin-bottom:40px;font-size:14.5px}
-table.identity th{background:var(--surface2);color:var(--gold);text-align:left;padding:10px 12px;
-  border:1px solid var(--line-soft);font-weight:600;letter-spacing:1px}
+table.identity th{background:var(--surface2);color:var(--gold);text-align:left;padding:10px 12px;border:1px solid var(--line-soft);font-weight:600;letter-spacing:1px}
 table.identity td{padding:10px 12px;border:1px solid var(--line-soft);color:var(--text);vertical-align:top}
 table.identity td:first-child{color:var(--gold-bright);white-space:nowrap}
 .rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
@@ -159,619 +127,28 @@ table.identity td:first-child{color:var(--gold-bright);white-space:nowrap}
 .rel h4{color:var(--gold-bright);font-size:17px}
 .rel .role{color:var(--gold);font-size:12.5px;letter-spacing:2px;margin:4px 0 8px}
 .rel p{color:var(--muted);font-size:14px}
-
-/* ---------- gallery ---------- */
 .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .gal-grid figure{cursor:pointer;position:relative;overflow:hidden;border:1px solid var(--line-soft)}
 .gal-grid img{width:100%;height:220px;object-fit:cover;transition:transform .4s}
 .gal-grid figure:hover img{transform:scale(1.05)}
-.gal-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:6px 10px;
-  background:linear-gradient(0deg,rgba(11,10,26,0.9),transparent);
-  color:var(--gold-bright);font-size:12.5px;letter-spacing:1px}
-
-/* ---------- footer ---------- */
+.gal-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:6px 10px;background:linear-gradient(0deg,rgba(11,10,26,0.9),transparent);color:var(--gold-bright);font-size:12.5px;letter-spacing:1px}
 footer{margin-top:80px;border-top:1px solid var(--line);padding:36px 0 50px;background:var(--surface)}
 footer .dis{color:var(--muted);font-size:13.5px;line-height:1.9}
 footer .srcs{margin-top:14px;font-size:13.5px}
 footer .srcs a{margin-right:16px}
-
-/* ---------- lightbox ---------- */
-#lb{position:fixed;inset:0;z-index:200;background:rgba(5,4,15,0.94);
-  display:none;align-items:center;justify-content:center;cursor:zoom-out;opacity:0;transition:opacity .25s}
+#lb{position:fixed;inset:0;z-index:200;background:rgba(5,4,15,0.94);display:none;align-items:center;justify-content:center;cursor:zoom-out;opacity:0;transition:opacity .25s}
 #lb.on{display:flex;opacity:1}
 #lb img{max-width:92vw;max-height:88vh;border:1px solid var(--line);box-shadow:0 0 40px rgba(0,0,0,.6)}
 #lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:var(--gold-bright);font-size:14px;letter-spacing:2px}
-
-/* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
-  html{scroll-behavior:auto}
-}
-
-/* ---------- responsive ---------- */
-@media (max-width:900px){
-  .card-grid{grid-template-columns:repeat(3,1fr)}
-  .profile-grid{grid-template-columns:1fr}
-  .gal-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:640px){
-  .nav-links{display:none}
-  .card-grid{grid-template-columns:repeat(2,1fr)}
-  .tl{grid-template-columns:84px 24px 1fr}
-  .sec-head .en{display:none}
-  section{padding:56px 0 24px}
-  .gal-grid img{height:160px}
-}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media (max-width:900px){.card-grid{grid-template-columns:repeat(3,1fr)}.profile-grid{grid-template-columns:1fr}.gal-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.nav-links{display:none}.card-grid{grid-template-columns:repeat(2,1fr)}.tl{grid-template-columns:84px 24px 1fr}.sec-head .en{display:none}section{padding:56px 0 24px}.gal-grid img{height:160px}}
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <div class="brand">顾时夜<small>GUSHIYE · 世界之外</small></div>
-    <div class="nav-links">
-      <a href="#profile">档案</a>
-      <a href="#story">主线副本</a>
-      <a href="#events">限时活动</a>
-      <a href="#cards">卡面图鉴</a>
-      <a href="#timeline">时间线</a>
-      <a href="#gallery">画廊</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="hero-bg"><img src="https://aka.doubaocdn.com/s/NWbMVYiKF4" alt="顾时夜军装特写"></div>
-  <span class="corner tl"></span><span class="corner br"></span>
-  <div class="wrap hero-content">
-    <div class="kicker">世界之外 · 男主档案</div>
-    <h1>顾时夜</h1>
-    <div class="sub">银非集团总裁 <span>·</span> 天蝎座 <span>·</span> 玩家遇见的第一位男主</div>
-    <div class="quote">「你想去任何地方，我都陪你去。不管是宇宙之内，还是世界之外。」</div>
-  </div>
-</header>
-
+<nav><div class="nav-inner"><div class="brand">顾时夜<small>GUSHIYE · 世界之外</small></div><div class="nav-links"><a href="#profile">档案</a><a href="#story">主线副本</a><a href="#events">限时活动</a><a href="#cards">卡面图鉴</a><a href="#timeline">时间线</a><a href="#gallery">画廊</a></div></div></nav>
+<header class="hero"><div class="hero-bg"><img src="https://aka.doubaocdn.com/s/NWbMVYiKF4" alt="顾时夜军装特写"></div><span class="corner tl"></span><span class="corner br"></span><div class="wrap hero-content"><div class="kicker">世界之外 · 男主档案</div><h1>顾时夜</h1><div class="sub">银非集团总裁 <span>·</span> 天蝎座 <span>·</span> 玩家遇见的第一位男主</div><div class="quote">「你想去任何地方，我都陪你去。不管是宇宙之内，还是世界之外。」</div></div></header>
 <main class="wrap">
-
-<!-- 01 人物档案 -->
-<section id="profile">
-  <div class="sec-head reveal">
-    <div class="sec-num">01</div>
-    <h2>人物档案</h2>
-    <div class="en">PROFILE</div>
-  </div>
-  <div class="profile-grid">
-    <div class="portrait-stack reveal">
-      <img class="p1" src="https://aka.doubaocdn.com/s/1Ues2oy45m" alt="顾时夜 西装读书">
-      <div class="portrait-row">
-        <img src="https://aka.doubaocdn.com/s/neNYevhA5G" alt="顾时夜 外套肖像">
-        <img src="https://aka.doubaocdn.com/s/EecPRcvXBZ" alt="顾时夜 军装全身">
-      </div>
-      <img src="https://aka.doubaocdn.com/s/daBhWRludj" alt="顾时夜 西装全身立绘">
-    </div>
-    <div>
-      <table class="info-table reveal">
-        <tr><td>中文名</td><td>顾时夜（玩家昵称：四哥、事业哥、失业哥）</td></tr>
-        <tr><td>生日</td><td>11 月 22 日 · 天蝎座</td></tr>
-        <tr><td>身高</td><td>约 190 cm，黑色短发，黑色眸子</td></tr>
-        <tr><td>现实身份</td><td>银非集团（Infinity）总裁</td></tr>
-        <tr><td>声优</td><td>姜广涛（公测版本，最终以官方为准）</td></tr>
-        <tr><td>标志道具</td><td>手表、书报</td></tr>
-        <tr><td>出场定位</td><td>玩家在主线遇到的第一位男主</td></tr>
-      </table>
-
-      <div class="trait reveal">
-        <h4>表层 · 冰山</h4>
-        <p>冷峻内敛、情绪极其稳定、不苟言笑，给人冷若冰山的距离感。</p>
-      </div>
-      <div class="trait reveal">
-        <h4>对你 · 冰川消融</h4>
-        <p>会露出"像素点般的微笑"，暗含醋意，行动上极其可靠——是"冰川消融"式的温柔。</p>
-      </div>
-      <div class="trait reveal">
-        <h4>能力面 · 掌控天命</h4>
-        <p>聪明绝顶、商业头脑极强、行事果断，有掌控天命的自信；但在"你"面前会失控、会破功。兼具双重人格特质，在不同副本中呈现霸总／军阀／仙君／帝王等侧面。</p>
-      </div>
-
-      <div class="parse reveal">
-        <strong>人设解析。</strong>顾时夜是"无限流"设定下最具掌控者气质的男主。他的核心矛盾是：<strong>一个算尽天命、俯瞰众生的人，偏偏算不出"你"的命，也偏偏为你破了功。</strong>各副本中身份虽变（总裁／军阀／仙君／帝王／星际统帅），但"他始终是他，唯一的他"——对"你"的偏爱与守护贯穿所有世界。
-      </div>
-
-      <div class="quotes">
-        <div class="qcard reveal"><p>在看到她的那一刻，即使是在深渊之中，我也想不顾一切地来到她身边。</p></div>
-        <div class="qcard reveal"><p>没什么。想要你罢了。</p></div>
-        <div class="qcard reveal"><p>……等我回来，想去哪里会带你去。</p></div>
-        <div class="qcard reveal"><p>你这次离开，还会回来吗？如果再回来，又会是什么时候，什么身份？</p></div>
-        <div class="qcard reveal"><p>天上地下，世间运数，没有我看不到的。即使是天命与天运，也在我的掌控之中。</p></div>
-        <div class="qcard reveal"><p>这个世界上，我唯一看不到的，只有我自己的命运。</p></div>
-        <div class="qcard reveal"><p>但我看不见你的命。</p></div>
-        <div class="qcard reveal"><p>逆天改命……怎么可能不付出代价。</p></div>
-        <div class="qcard reveal"><p>我不会死。即使真的死了，过千年万年，也依然可以涅槃重生。</p></div>
-        <div class="qcard reveal"><p>你想回家，我就送你回家。你喜欢人间，我就陪你留在人间。</p></div>
-        <div class="qcard reveal"><p>你总是不死心。</p></div>
-        <div class="qcard reveal"><p>你在我身边，即便不说话，也很好。</p><span class="src">问雪</span></div>
-        <div class="qcard reveal"><p>等雪停了，你和我回去。我在，不必怕。</p><span class="src">雪寄此心</span></div>
-        <div class="qcard reveal"><p>你想去任何地方，我都陪你去。不管是宇宙之内，还是世界之外。</p><span class="src">尘辉所往</span></div>
-        <div class="qcard reveal"><p>十年梦，共君眠；知我意，雪满山。</p><span class="src">2025 生日 · 日明松雪</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- 02 主线副本 -->
-<section id="story">
-  <div class="sec-head reveal">
-    <div class="sec-num">02</div>
-    <h2>主线副本</h2>
-    <div class="en">WORLDS</div>
-  </div>
-  <div class="story-list">
-
-    <article class="story-card reveal">
-      <h3>人偶之匣</h3>
-      <div class="tags"><span class="tag">开服共通线</span><span class="tag">悬疑密室</span></div>
-      <p class="syn">游戏开局的悬疑密室世界。玩家"你"在诡异人偶剧场中苏醒，在不同结局分支中认识四位男主；顾时夜以神秘掌权者／关键解谜者身份登场，是玩家遇到的第一位男主。</p>
-      <div class="extra">
-        <ul>
-          <li>初遇顾时夜；选择是否信任他</li>
-          <li>解锁顾时夜个人分支结局</li>
-          <li>成功／失败结局差异明显（患难之交、在一起、千年等待等）</li>
-        </ul>
-        <div class="story-line">「在看到她的那一刻，即使是在深渊之中，我也想不顾一切地来到她身边。」</div>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>迷失空间</h3>
-      <div class="tags"><span class="tag">主线</span><span class="tag">现代悬疑</span></div>
-      <p class="syn">无尽密室类世界。玩家在循环空间中反复经历同一天，收集线索、思考关键词（如"深渊之眼""安静的公司"）以打破轮回。</p>
-      <div class="extra">
-        <ul>
-          <li>收集房间线索，触发"危险的天台"</li>
-          <li>电梯楼层选择导向不同结局（共赴未来／美好幻想／永困轮回）</li>
-        </ul>
-        <div class="story-line">「你总是不死心。」</div>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>无尽密室 · 深渊大厦</h3>
-      <div class="tags"><span class="tag">现代霸总</span><span class="tag">无限循环写字楼</span></div>
-      <p class="syn">现代都市。玩家成为银非集团底层员工，被困在"深渊大厦"这栋无限循环的写字楼中；顾时夜是银非集团总裁、大厦实际掌控者，持有高权限门禁卡。</p>
-      <div class="extra">
-        <ul>
-          <li>加班被困 → 逐层解谜 → 天台对峙</li>
-          <li>联想链：深渊之眼＋安静的公司＝顾时夜的身份；身份＋高权限门禁卡＝危险的天台</li>
-          <li>电梯输入 147 层＝成功结局"留在人间"；180 层＝失败结局"共赴深渊"</li>
-          <li>设定彩蛋：银非集团＝Infinity（无穷大），侧看像沙漏、等同于莫比乌斯环，暗喻无限循环</li>
-        </ul>
-        <div class="story-line">「没什么。想要你罢了。」</div>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>时代旧影</h3>
-      <div class="tags"><span class="tag">民国军阀</span><span class="tag">先婚后爱</span></div>
-      <p class="syn">架空民国。北大州洛宁势力，顾家掌管冰海舰队与洛川陆军。玩家以留学归来的富家千金身份融入洛宁上流社交圈，在灯红酒绿的宴会中与顾时夜相遇。</p>
-      <div class="extra">
-        <ul>
-          <li>宴会初遇 → 家族联姻／先婚后爱</li>
-          <li>冰海舰队与战场危机；"发现《冰海》"剧情节点</li>
-          <li>名卡「尽余欢」即出自此线（T0 思维卡）</li>
-        </ul>
-        <div class="story-line">「……等我回来，想去哪里会带你去。」</div>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>仙途飘渺 · 金合欢之谜</h3>
-      <div class="tags"><span class="tag">仙侠</span><span class="tag">仙君</span></div>
-      <p class="syn">仙侠修真世界。玩家成为金合欢圣教新任教主，教徒献上炉鼎；其中一名男子仙姿冰骨，长老只当是失明散修，只有"你"知道他是算尽天命的无尽天主人。趁他失忆，"你"将他留在身边重修旧缘。</p>
-      <div class="extra">
-        <ul>
-          <li>教主选炉鼎 → 识破仙君身份 → 趁失忆相伴</li>
-          <li>石窟冰中救女；无尽天诀别与隔着重生</li>
-          <li>2025 年 5 月（端午假期）开放支线</li>
-        </ul>
-        <div class="story-line">「天上地下，世间运数，没有我看不到的……但我看不见你的命。」</div>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>天命（大倾）</h3>
-      <div class="tags"><span class="tag">古代帝王</span><span class="tag">权谋宫变</span></div>
-      <p class="syn">架空古代王朝。大皇子刺杀不断、后宫皇后想杀人灭口。顾时夜从顾帅（将军）一路登基为帝，"你"为皇后（或长公主／被架空的皇帝），最终"你"看似皇后实则已把皇帝架空。</p>
-      <div class="extra">
-        <ul>
-          <li>北阗边关平叛 → 大皇子刺杀 → 神兵天降 → 烬血宫变</li>
-          <li>易遇在宫中暗中布局；名卡「月枕山河」出自此线</li>
-          <li>2026 年 5–6 月上线</li>
-        </ul>
-        <div class="story-line">「我不会死。即使真的死了，过千年万年，也依然可以涅槃重生。」</div>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>201 号崩坍世界 · 尘辉所往</h3>
-      <div class="tags"><span class="tag">星际</span><span class="tag">种田变横扫宇宙</span></div>
-      <p class="syn">崩坍世界编号 201，星际／未来废土。本以为是种田剧本，结果"你"直接以一敌三横扫宇宙；顾时夜是横扫宇宙的星际统帅。</p>
-      <div class="extra">
-        <ul>
-          <li>种田开局 → 星际战斗</li>
-          <li>第 17 节"罢了，我跟你走"；第 18 节大结局"你是我苏醒的意义"</li>
-          <li>2026 年 3 月 12–26 日</li>
-        </ul>
-        <div class="story-line">「你想去任何地方，我都陪你去。不管是宇宙之内，还是世界之外。」</div>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>独开至夜明</h3>
-      <div class="tags"><span class="tag">特殊副本</span><span class="tag">翅膀西装</span></div>
-      <p class="syn">"你独自前往外市出差，走下站台，踏入这座看似繁华的都市，高楼之下却潜藏危机。"月光下高楼之上，坐着带翅膀的神秘西装男。</p>
-      <div class="extra">
-        <ul>
-          <li>出差抵达外市 → 月下高楼相遇 → 翅膀造型名场面</li>
-          <li>世界侧影「万古长夜」配套剧情；同池柏源「归途无名」、易遇「千山暮雪」、夏萧因「月上黄泉」</li>
-          <li>2025 年 3 月</li>
-        </ul>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>此间即无间</h3>
-      <div class="tags"><span class="tag">特殊副本</span><span class="tag">地狱无间</span></div>
-      <p class="syn">"你醒了？这里是……地狱。"地狱／无间设定的特殊副本，顾时夜以四天王之一身份登场（开服创作征集令对应卡「不觉日长」）。详细分节剧情资料待补。</p>
-      <div class="extra">
-        <ul>
-          <li>地狱场景中的掌权者侧面</li>
-          <li>卡面「不觉日长」即对应此线</li>
-        </ul>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>迷失国度</h3>
-      <div class="tags"><span class="tag">暗黑童话</span><span class="tag">春节克系悬疑</span></div>
-      <p class="syn">玩家收到神秘邀请函，进入一个有去无回的诡异小镇，居民每到零点集体消失；需化身经典童话角色，剧本全部逆转。顾时夜是《白雪公主》中的白雪公主，"你"是继母（黑王后）。</p>
-      <div class="extra">
-        <ul>
-          <li>收到邀请函 → 零点消失的小镇 → 童话角色逆转</li>
-          <li>同期：夏萧因《卖火柴的小女孩》、柏源《小红帽与大灰狼》、易遇《海的女儿》</li>
-          <li>2026 年 2 月春节版本（含"永雾的低语"后续）</li>
-        </ul>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>云岭祀梦</h3>
-      <div class="tags"><span class="tag">特殊副本</span><span class="tag">山灵祭祀</span></div>
-      <p class="syn">"山灵不语，梦入幽墟。"银铃阵阵、梦影重重的山村设定。同期柏源侧影「河倾月落」、夏萧因「蝶梦中网」；顾时夜配套侧影资料待补。2026 年 3 月 25 日上线。</p>
-      <div class="extra"><ul><li>山灵祭祀、梦影重重的山村世界观</li></ul></div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>夏夜诡叙诗</h3>
-      <div class="tags"><span class="tag">特殊副本</span><span class="tag">悬疑诡叙</span></div>
-      <p class="syn">悬疑诡叙式的夏夜小镇，与"此间即无间"相关。大结局中王晨晨想取代"你"，被顾时夜"天神下凡"轻松化解。对应卡牌「影」。</p>
-      <div class="extra">
-        <ul>
-          <li>第一天收集资料、选择不开门（开门走"暗中囚"结局）</li>
-          <li>第二天解谜；大结局顾时夜天神下凡救场</li>
-          <li>同池夏萧因「声」、易遇「镜」、柏源「相」；2026 年 5 月限时重启</li>
-        </ul>
-      </div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-    <article class="story-card reveal">
-      <h3>天地赋色</h3>
-      <div class="tags"><span class="tag">联动副本</span><span class="tag">四域奇幻</span></div>
-      <p class="syn">四男主分属四域的奇幻联动设定：辉光狮境（柏源）、永暮森林（易遇）、奥术穹庭（夏萧因）、霜泣冻土（顾时夜）。最后一天"绮乔节"四男主剧情分 P。2025 年 8 月 27 日–9 月 8 日。</p>
-      <div class="extra"><ul><li>顾时夜＝霜泣冻土之主</li></ul></div>
-      <button class="toggle" data-toggle>展开详情</button>
-    </article>
-
-  </div>
-</section>
-
-<!-- 03 限时活动时间线 -->
-<section id="events">
-  <div class="sec-head reveal">
-    <div class="sec-num">03</div>
-    <h2>限时活动时间线</h2>
-    <div class="en">TIMELINE OF EVENTS</div>
-  </div>
-  <div class="tl reveal">
-    <div class="tl-item"><div class="tl-time">2024-01</div><div class="tl-dot"></div><div class="tl-body"><h4>开服 · 岁月恒长</h4><div class="sv">侧影：不觉日长（四天王）</div><p>开服新手池，前 20 抽必得世界侧影。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2024-02</div><div class="tl-dot"></div><div class="tl-body"><h4>情人节混池 · 心动时刻</h4><div class="sv">侧影：人海相遇</div><p>"人海相遇"限定世界侧影；同池易遇甜蜜记忆、柏源偶有钟情、夏萧因人间烟火。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2024-05</div><div class="tl-dot"></div><div class="tl-body"><h4>520 混池</h4><div class="sv">侧影：消融</div><p>520 限定；同池易遇咫尺、柏源……</p></div></div>
-    <div class="tl-item"><div class="tl-time">2024-06</div><div class="tl-dot"></div><div class="tl-body"><h4>06 号崩坍世界</h4><div class="sv">侧影：掌中砂</div><p>"有时候，看不见或许比能看见更好。"6/21–7/8。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2024-10</div><div class="tl-dot"></div><div class="tl-body"><h4>银河寂灭处</h4><div class="sv">顾时夜相关限定（资料待补）</div><p>"我要命运在我，我要群星重写这宇宙。"尖端科技争夺。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2024-11</div><div class="tl-dot"></div><div class="tl-body"><h4>生日 · 问雪 / 万里同归</h4><div class="sv">侧影：问雪（世界）、雪寄此心（免费兑换）</div><p>11/17 问雪世界之间；特别任务"万里同归"免费兑换星级侧影；生日主题歌《青山如昨》。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2025-02</div><div class="tl-dot"></div><div class="tl-body"><h4>渡见春混池</h4><div class="sv">侧影：姻缘何错</div><p>同池夏萧因知我暗涌、易遇慈悲不渡、柏源远路生花。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2025-03</div><div class="tl-dot"></div><div class="tl-body"><h4>独开至夜明</h4><div class="sv">侧影：万古长夜</div><p>翅膀西装世界侧影。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2025-05</div><div class="tl-dot"></div><div class="tl-body"><h4>仙途飘渺支线 · 金合欢之谜</h4><div class="sv">配套支线</div><p>仙君／失明散修线。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2025-08</div><div class="tl-dot"></div><div class="tl-body"><h4>天地赋色联动</h4><div class="sv">侧影：霜泣冻土</div><p>四域联动。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2025-10</div><div class="tl-dot"></div><div class="tl-body"><h4>星际纵横</h4><div class="sv">限时重启</div><p>10/15–29 限时重启顾时夜、易遇等限定侧影。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2025-11</div><div class="tl-dot"></div><div class="tl-body"><h4>生日 · 日明松雪 / 凤凰于飞</h4><div class="sv">侧影：凤凰于飞（世界）、四海归乡（免费兑换）</div><p>11/21–12/6 凤凰于飞世界之间；特别事件"日明松雪"免费兑换"四海归乡"；2024 生日"问雪"同期限时重启。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2026-02</div><div class="tl-dot"></div><div class="tl-body"><h4>春节 · 迷失国度</h4><div class="sv">白雪公主线</div><p>暗黑童话副本。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2026-03</div><div class="tl-dot"></div><div class="tl-body"><h4>201 号崩坍世界 · 尘辉所往</h4><div class="sv">侧影：尘辉所往</div><p>3/12–3/26 星际种田线。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2026-03</div><div class="tl-dot"></div><div class="tl-body"><h4>云岭祀梦</h4><div class="sv">配套侧影</div><p>山村祭祀梦副本。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2026-05</div><div class="tl-dot"></div><div class="tl-body"><h4>天命（大倾）</h4><div class="sv">侧影：月枕山河</div><p>古代帝王线；同池易遇冠盖京华、柏源含章可贞、夏萧因与子同袍。</p></div></div>
-    <div class="tl-item"><div class="tl-time">2026-05</div><div class="tl-dot"></div><div class="tl-body"><h4>夏夜诡叙诗</h4><div class="sv">侧影：影</div><p>悬疑诡叙副本；5/20–6/10 天命特殊副本同开。</p></div></div>
-  </div>
-</section>
-<!-- 04 卡面图鉴 -->
-<section id="cards">
-  <div class="sec-head reveal">
-    <div class="sec-num">04</div>
-    <h2>卡面图鉴</h2>
-    <div class="en">SIDE VIEWS</div>
-  </div>
-  <p style="color:var(--muted);font-size:14px;margin-bottom:20px">游戏中卡牌称"侧影"：世界＝SSR（金）、月＝SR（银）、相伴＝R（铜）。点击卡片可放大查看原图；无卡面的以书法占位标注。</p>
-  <div class="filter reveal">
-    <button class="active" data-f="all">全部</button>
-    <button data-f="ssr">世界 SSR</button>
-    <button data-f="sr">月 SR</button>
-    <button data-f="r">相伴 R</button>
-  </div>
-  <div class="card-grid reveal">
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/YbTUtfLnD9">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/YbTUtfLnD9" alt="不觉日长"></div>
-      <div class="meta"><h4>不觉日长</h4><div class="src">开服 · 此间即无间 / 岁月恒长池</div><div class="line">开服四天王之一（顾时夜侧）。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/9Odiy7g08e">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/9Odiy7g08e" alt="人海相遇"></div>
-      <div class="meta"><h4>人海相遇</h4><div class="src">情人节混池 · 心动时刻（2024-02）</div><div class="line">"人海相遇"主题；与"你"在人潮中初遇／重逢。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/s93GcmYPn3">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/s93GcmYPn3" alt="消融"></div>
-      <div class="meta"><h4>消融</h4><div class="src">520 混池（2024-05）</div><div class="line">冰川消融式温柔，520 限定。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/TgjiaVwVQp">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/TgjiaVwVQp" alt="尽余欢"></div>
-      <div class="meta"><h4>尽余欢</h4><div class="src">时代旧影（民国军阀线）· 思维 T0</div><div class="line">冰海舰队／战场背景；相会剧情含"发现《冰海》"节点。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/2EBALsln90">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/2EBALsln90" alt="掌中砂"></div>
-      <div class="meta"><h4>掌中砂</h4><div class="src">06 号崩坍世界（2024-06）· 思维 T1</div><div class="line">"雪落梅花，心上朱砂。"梦中成一国之主、"你"是皇后。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/osgEbGTYR1">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/osgEbGTYR1" alt="问雪"></div>
-      <div class="meta"><h4>问雪</h4><div class="src">2024 生日（2024-11-17）· 现实世界</div><div class="line">红梅映雪、斯人如梦。"你在我身边，即便不说话，也很好。"</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/IpX2osM7ZW">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/IpX2osM7ZW" alt="万古长夜"></div>
-      <div class="meta"><h4>万古长夜</h4><div class="src">独开至夜明（2025-03）</div><div class="line">月光下高楼之上、带翅膀的西装造型。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/UZj8PBI2k0">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/UZj8PBI2k0" alt="姻缘何错"></div>
-      <div class="meta"><h4>姻缘何错</h4><div class="src">渡见春混池（2025-02）· 思维 T1</div><div class="line">渡见春主题；与"你"姻缘纠葛。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/xeEeyATP1n">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/xeEeyATP1n" alt="影"></div>
-      <div class="meta"><h4>影</h4><div class="src">夏夜诡叙诗（2026-05）</div><div class="line">"影"对应顾时夜；同池易遇"镜"、柏源"相"、夏萧因"声"。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/Iemlp2hsVe">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/Iemlp2hsVe" alt="尘辉所往"></div>
-      <div class="meta"><h4>尘辉所往</h4><div class="src">201 号崩坍世界（2026-03-12）</div><div class="line">"你想去任何地方，我都陪你去。不管是宇宙之内，还是世界之外。"</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/NwW3A3barU">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/NwW3A3barU" alt="月枕山河"></div>
-      <div class="meta"><h4>月枕山河</h4><div class="src">天命（大倾帝王线，2026-05）</div><div class="line">古代帝王／皇后线；同池易遇冠盖京华、柏源含章可贞、夏萧因与子同袍。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr" data-img="https://aka.doubaocdn.com/s/nZIEAIJ9nT">
-      <div class="thumb"><span class="badge ssr">SSR</span><img src="https://aka.doubaocdn.com/s/nZIEAIJ9nT" alt="天定同途"></div>
-      <div class="meta"><h4>天定同途</h4><div class="src">黄金之地</div><div class="line">黄金之地全员世界侧影之一。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr">
-      <div class="thumb"><span class="badge ssr">SSR</span><div class="ph">凤凰于飞<small>卡面待补</small></div></div>
-      <div class="meta"><h4>凤凰于飞</h4><div class="src">2025 生日 · 日明松雪（2025-11-21）</div><div class="line">"凤凰于飞"主题；生日世界侧影。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr">
-      <div class="thumb"><span class="badge ssr">SSR</span><div class="ph">遥远风讯<small>卡面待补</small></div></div>
-      <div class="meta"><h4>遥远风讯</h4><div class="src">出处待补</div><div class="line">wiki 侧影列表收录。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="ssr">
-      <div class="thumb"><span class="badge ssr">SSR</span><div class="ph">夜长如岁<small>卡面待补</small></div></div>
-      <div class="meta"><h4>夜长如岁</h4><div class="src">出处待补</div><div class="line">wiki 侧影列表收录。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="sr">
-      <div class="thumb"><span class="badge sr">SR</span><div class="ph">雪寄此心<small>卡面待补</small></div></div>
-      <div class="meta"><h4>雪寄此心</h4><div class="src">2024 生日特别任务"万里同归"免费兑换</div><div class="line">"等雪停了，你和我回去。我在，不必怕。"</div></div>
-    </div>
-
-    <div class="ccard" data-rank="sr">
-      <div class="thumb"><span class="badge sr">SR</span><div class="ph">四海归乡<small>卡面待补</small></div></div>
-      <div class="meta"><h4>四海归乡</h4><div class="src">2025 生日特别事件"日明松雪"免费兑换</div><div class="line">松雪币兑换星级侧影。</div></div>
-    </div>
-
-    <div class="ccard" data-rank="r">
-      <div class="thumb"><span class="badge r">R</span><div class="ph">我即传说<small>卡面待补</small></div></div>
-      <div class="meta"><h4>我即传说</h4><div class="src">暇光书房时光碎片系列</div><div class="line">时光碎片系列侧影。</div></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- 05 身份演变与关系网 -->
-<section id="timeline">
-  <div class="sec-head reveal">
-    <div class="sec-num">05</div>
-    <h2>身份演变与关系网</h2>
-    <div class="en">IDENTITY &amp; RELATIONS</div>
-  </div>
-
-  <h3 style="color:var(--gold-bright);margin-bottom:14px;letter-spacing:2px">顾时夜身份演变（按世界／副本）</h3>
-  <div style="overflow-x:auto">
-  <table class="identity reveal">
-    <tr><th>副本</th><th>顾时夜身份</th><th>"你"的身份</th><th>关系关键词</th></tr>
-    <tr><td>人偶之匣</td><td>神秘掌权者</td><td>被困玩家</td><td>初遇、解谜</td></tr>
-    <tr><td>迷失空间</td><td>高权限者</td><td>循环参与者</td><td>共破轮回</td></tr>
-    <tr><td>无尽密室 · 深渊大厦</td><td>银非集团总裁</td><td>底层员工</td><td>加班、霸总、"留在人间"</td></tr>
-    <tr><td>时代旧影</td><td>洛宁顾家军事统帅（军阀少帅）</td><td>留学归来富家千金</td><td>先婚后爱、冰海舰队</td></tr>
-    <tr><td>仙途飘渺 · 金合欢之谜</td><td>无尽天主人／仙君（伪装失明散修）</td><td>金合欢圣教教主</td><td>炉鼎、失忆、重修旧缘</td></tr>
-    <tr><td>天命（大倾）</td><td>顾帅 → 登基为帝</td><td>皇后／长公主／被架空的帝</td><td>权谋、宫变、并肩</td></tr>
-    <tr><td>201 号崩坍世界 · 尘辉所往</td><td>星际统帅</td><td>以一敌三的主角</td><td>种田变横扫宇宙</td></tr>
-    <tr><td>独开至夜明</td><td>带翅膀的神秘西装男</td><td>出差的"你"</td><td>月下高楼</td></tr>
-    <tr><td>迷失国度</td><td>白雪公主</td><td>继母（黑王后）</td><td>暗黑童话</td></tr>
-    <tr><td>天地赋色</td><td>霜泣冻土之主</td><td>四域访客</td><td>联动</td></tr>
-  </table>
-  </div>
-
-  <h3 style="color:var(--gold-bright);margin:26px 0 14px;letter-spacing:2px">关系网</h3>
-  <div class="rel-grid">
-    <div class="rel reveal"><h4>你（女主）</h4><div class="role">核心 · 唯一</div><p>所有男主都爱且仅爱"你"一人。他的失控点就是你：嘴上克制（"没什么"），行动上永远第一时间赶到。反复母题——"你想回家，我送你回家；你喜欢人间，我陪你留在人间。"</p></div>
-    <div class="rel reveal"><h4>易遇</h4><div class="role">同僚 / 对手 · 医生智囊</div><p>官方定位医生／智囊。在「天命」线中暗中布局（易容成长公主、借皇后的狗咬皇后），是顾时夜帝王路上"外置大脑"式的盟友与对手。</p></div>
-    <div class="rel reveal"><h4>夏萧因</h4><div class="role">同僚 / 对手 · 外放热烈</div><p>与顾时夜一个冷一个热，常在混池／活动中同框。</p></div>
-    <div class="rel reveal"><h4>柏源</h4><div class="role">同僚 / 对手 · 将军警察</div><p>官方定位正义侧。与顾时夜在军事线（时代旧影、天命）有立场重叠与制衡。</p></div>
-    <div class="rel reveal"><h4>顾家</h4><div class="role">关键配角 · 时代旧影</div><p>洛宁势力、冰海舰队、洛川陆军——他统帅家族的根基。</p></div>
-    <div class="rel reveal"><h4>大皇子 · 皇后</h4><div class="role">政敌 · 天命</div><p>刺杀与灭口，顾时夜登基路上的宫廷对手。</p></div>
-    <div class="rel reveal"><h4>王晨晨</h4><div class="role">反派 · 夏夜诡叙诗</div><p>想取代"你"的人，被顾时夜"天神下凡"轻松化解。</p></div>
-  </div>
-</section>
-
-<!-- 06 高清画廊 -->
-<section id="gallery">
-  <div class="sec-head reveal">
-    <div class="sec-num">06</div>
-    <h2>高清画廊</h2>
-    <div class="en">GALLERY</div>
-  </div>
-  <div class="gal-grid reveal">
-    <figure><img src="https://aka.doubaocdn.com/s/NWbMVYiKF4" alt="军装敬礼特写"><figcaption>军装敬礼 · 特写</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/EecPRcvXBZ" alt="军装全身"><figcaption>军装全身</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/daBhWRludj" alt="西装全身立绘"><figcaption>西装全身立绘</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/1Ues2oy45m" alt="黑西装读书"><figcaption>黑西装读书</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/neNYevhA5G" alt="外套肖像"><figcaption>外套肖像</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/s93GcmYPn3" alt="消融"><figcaption>消融 · 520</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/TgjiaVwVQp" alt="尽余欢"><figcaption>尽余欢 · 风雪归人</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/JILV3Y6GL4" alt="归鸣重逢"><figcaption>仙君 · 凭窗重逢</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/3N0KEBTEws" alt="蓝袍仙人"><figcaption>蓝水仙君 · 伸手</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/hW4nrEXo6W" alt="蓝袍仙人横版"><figcaption>蓝水仙君 · 横版</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/2EBALsln90" alt="掌中砂拥抱"><figcaption>掌中砂 · 雪中相拥</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/vpZkvZi6JD" alt="掌中砂拥抱二"><figcaption>掌中砂 · 特写</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/NwW3A3barU" alt="帝王回眸"><figcaption>帝王 · 回眸</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/wtS6UfRFkI" alt="宫殿龙壁"><figcaption>宫殿 · 龙壁灯烛</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/NBQ5XpFEhq" alt="暗冠仙君"><figcaption>暗冠 · 托腮</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/UZj8PBI2k0" alt="黑发古装"><figcaption>古装 · 伸手</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/nZIEAIJ9nT" alt="金光古袍"><figcaption>金光古袍 · 触光</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/Iemlp2hsVe" alt="坠入夜空"><figcaption>坠入夜空</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/YbTUtfLnD9" alt="恶魔 horns"><figcaption>不觉日长 · 堕天使</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/Ox0DT4aOXa" alt="恶魔横版"><figcaption>不觉日长 · 横版</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/IpX2osM7ZW" alt="黑翅屋顶"><figcaption>万古长夜 · 黑翅</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/osgEbGTYR1" alt="伞下雪"><figcaption>问雪 · 伞下</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/ds66LjXANx" alt="伞下雪特写"><figcaption>问雪 · 特写</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/xeEeyATP1n" alt="夏外套转身"><figcaption>影 · 夏外套转身</figcaption></figure>
-    <figure><img src="https://aka.doubaocdn.com/s/9Odiy7g08e" alt="紫领带黄昏"><figcaption>人海相遇 · 紫领带黄昏</figcaption></figure>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="wrap">
-    <p class="dis">本站为粉丝非官方创作，素材版权归网易游戏所有。《世界之外》及相关角色、卡牌图片版权 © 网易游戏。本站不用于任何商业用途，侵删即删。<br>
-    资料基于公开网络整理，标注"资料待补"处未经官方核实，请勿当作官方设定引用。</p>
-    <p class="srcs">
-      资料来源：
-      <a href="https://world.163.com" target="_blank" rel="noopener">《世界之外》官网</a>
-      <a href="https://wiki.biligame.com/world/" target="_blank" rel="noopener">B 站 WIKI</a>
-      <a href="https://www.taptap.cn/app/364144" target="_blank" rel="noopener">TapTap 攻略</a>
-    </p>
-  </div>
-</footer>
-
-<div id="lb" aria-hidden="true"><img src="" alt=""><div class="cap"></div></div>
-
-<script>
-(function(){
-  // reveal on scroll
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:0.12});
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-
-  // story expand toggle
-  document.querySelectorAll('[data-toggle]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var card = btn.closest('.story-card');
-      card.classList.toggle('open');
-      btn.textContent = card.classList.contains('open') ? '收起' : '展开详情';
-    });
-  });
-
-  // card filter
-  var btns = document.querySelectorAll('.filter button');
-  btns.forEach(function(b){
-    b.addEventListener('click', function(){
-      btns.forEach(function(x){ x.classList.remove('active'); });
-      b.classList.add('active');
-      var f = b.getAttribute('data-f');
-      document.querySelectorAll('.ccard').forEach(function(c){
-        var show = (f==='all') || c.getAttribute('data-rank')===f;
-        c.style.display = show ? '' : 'none';
-      });
-    });
-  });
-
-  // lightbox
-  var lb = document.getElementById('lb'),
-      lbImg = lb.querySelector('img'),
-      lbCap = lb.querySelector('.cap');
-  function openLb(src, cap){
-    lbImg.src = src; lbCap.textContent = cap || '';
-    lb.classList.add('on'); lb.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLb(){
-    lb.classList.remove('on'); lb.setAttribute('aria-hidden','true');
-    lbImg.src=''; document.body.style.overflow='';
-  }
-  document.querySelectorAll('.ccard').forEach(function(c){
-    c.addEventListener('click', function(){
-      var img = c.querySelector('img');
-      if(img){ openLb(img.src, c.querySelector('h4').textContent); }
-    });
-  });
-  document.querySelectorAll('.gal-grid figure').forEach(function(f){
-    f.addEventListener('click', function(){
-      openLb(f.querySelector('img').src, f.querySelector('figcaption').textContent);
-    });
-  });
-  lb.addEventListener('click', closeLb);
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
-})();
-</script>
-</body>
-</html>
+<section id="profile"><div class="sec-head reveal"><div class="sec-num">01</div><h2>人物档案</h2><div class="en">PROFILE</div></div><div class="profile-grid"><div class="portrait-stack reveal"><img class="p1" src="https://aka.doubaocdn.com/s/1Ues2oy45m" alt="顾时夜 西装读书"><div class="portrait-row"><img src="https://aka.doubaocdn.com/s/neNYevhA5G" alt="顾时夜 外套肖像"><img src="https://aka.doubaocdn.com/s/EecPRcvXBZ" alt="顾时夜 军装全身"></div><img src="https://aka.doubaocdn.com/s/daBhWRludj" alt="顾时夜 西装全身立绘"></div><div><table class="info-table reveal"><tr><td>中文名</td><td>顾时夜（玩家昵称：四哥、事业哥、失业哥）</td></tr><tr><td>生日</td><td>11 月 22 日 · 天蝎座</td></tr><tr><td>身高</td><td>约 190 cm，黑色短发，黑色眸子</td></tr><tr><td>现实身份</td><td>银非集团（Infinity）总裁</td></tr><tr><td>声优</td><td>姜广涛（公测版本，最终以官方为准）</td></tr><tr><td>标志道具</td><td>手表、书报</td></tr><tr><td>出场定位</td><td>玩家在主线遇到的第一位男主</td></tr></table><div class="trait reveal"><h4>表层 · 冰山</h4><p>冷峻内敛、情绪极其稳定、不苟言笑，给人冷若冰山的距离感。</p></div><div class="trait reveal"><h4>对你 · 冰川消融</h4><p>会露出"像素点般的微笑"，暗含醋意，行动上极其可靠——是"冰川消融"式的温柔。</p></div><div class="trait reveal"><h4>能力面 · 掌控天命</h4><p>聪明绝顶、商业头脑极强、行事果断，有掌控天命的自信；但在"你"面前会失控、会破功。兼具双重人格特质，在不同副本中呈现霸总／军阀／仙君／帝王等侧面。</p></div><div class="parse reveal"><strong>人设解析。</strong>顾时夜是"无限流"设定下最具掌控者气质的男主。他的核心矛盾是：<strong>一个算尽天命、俯瞰众生的人，偏偏算不出"你"的命，也偏偏为你破了功。</strong>各副本中身份虽变（总裁／军阀／仙君／帝王／星际统帅），但"他始终是他，唯一的他"——对"你"的偏爱与守护贯穿所有世界。</div><div class="quotes"><div class="qcard reveal"><p>在看到她的那一刻，即使是在深渊之中，我也想不顾一切地来到她身边。</p></div><div class="qcard reveal"><p>没什么。想要你罢了。</p></div><div class="qcard reveal"><p>……等我回来，想去哪里会带你去。</p></div><div class="qcard reveal"><p>你这次离开，还会回来吗？如果再回来，又会是什么时候，什么身份？</p></div><div class="qcard reveal"><p>天上地下，世间运数，没有我看不到的。即使是天命与天运，也在我的掌控之中。</p></div><div class="qcard reveal"><p>这个世界上，我唯一看不到的，只有我自己的命运。</p></div><div class="qcard reveal"><p>但我看不见你的命。</p></div><div class="qcard reveal"><p>逆天改命……怎么可能不付出代价。</p></div><div class="qcard reveal"><p>我不会死。即使真的死了，过千年万年，也依然可以涅槃重生。</p></div><div class="qcard reveal"><p>你想回家，我就送你回家。你喜欢人间，我就陪你留在人间。</p></div><div class="qcard reveal"><p>你总是不死心。</p></div><div class="qcard reveal"><p>你在我身边，即便不说话，也很好。</p><span class="src">问雪</span></div><div class="qcard reveal"><p>等雪停了，你和我回去。我在，不必怕。</p><span class="src">雪寄此心</span></div><div class="qcard reveal"><p>你想去任何地方，我都陪你去。不管是宇宙之内，还是世界之外。</p><span class="src">尘辉所往</span></div><div class="qcard reveal"><p>十年梦，共君眠；知我意，雪满山。</p><span class="src">2025 生日 · 日明松雪</span></div></div></div></div></section>
